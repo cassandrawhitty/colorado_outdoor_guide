@@ -1,0 +1,3 @@
+development:
+  adapter: sqlite3
+  database: db/colorado_outdoor_guide.sqlite3
