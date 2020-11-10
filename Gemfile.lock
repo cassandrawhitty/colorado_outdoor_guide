@@ -65,7 +65,7 @@ DEPENDENCIES
   require_all (~> 3.0)
   sinatra-activerecord (~> 2.0)
   sqlite3 (~> 1.4)
-  tty-prompt
+  tty-prompt (~> 0.22.0)
 
 BUNDLED WITH
    2.1.4
