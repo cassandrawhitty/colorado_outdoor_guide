@@ -3,10 +3,31 @@
 
 
 ski_snowboard = Sport.create(user_id: user, name: "Ski/Snowboarding", equipment: "Required: Skis/Snowboard, Winter Jacket, Winter Pants, Winter Gloves, Helmet, Goggles \n Optional: Beacon, Facecovering, Thermals, Hand-warmers, Sunscreen, Chapstick, Tissues")
-
 dirt_biking = Sport.create(user_id: user, name: "Dirt Biking", equipment: "Required: Dirtbike, Long Sleeve Jersey/Shirt, Long Pants, Boots, Gloves, Goggles, Hydration-Pac, Snacks \n Optional: GPS, Sunscreen, Chest/Back Protection, Arm Protection, Knee Protection, Tool Kit, Extra Gas, Tire Repair Kit") 
+rock_climbing = Sport.create(user, name: "rock climbing", equipment: "climbing rope, helmet, harness, locking carabiners, quick draws, trad rack, chalk bag, chalk, belay device, sunscreen, backpack, food and water")
+hiking = Sport.create(user, name: "hiking", equipment: "layers, warm hat, sun hat, sunglasses, supportive shoes, sunscreen, backpack, food and water, hiking poles (optional)")
 
+Area.create(rock_climbing, area_name: "Rampart Range", difficulty_level: "Beginner to Intermediate", popularity_rating: 4.6, description: "This is an area with bouldering, toprope climbing, trad climbing, and sport climbing options.")
+Area.create(rock_climbing, area_name: "North Table", difficulty_level: "Beginner to Intermediate", popularity_rating: 4.6, description: "This is an area with many accessible toproping options, along with trad climbing and sport climbing.  There is very little boudering at this location.")
+Area.create(rock_climbing, area_name: "Eldorado Canyon", difficulty_level: "Intermediate to Expert", popularity_rating: 4.8, description: "This is an area with a large variety of trad climbing, some sport climbing, some toproping, and some bouldering.")
+Area.create(rock_climbing, area_name: "Boulder Canyon", difficulty_level: "Intermediate to Advanced", popularity_rating: 4.8, description: "This is an area with a large variety of trad climbing, a large variety of sport climbing, a little bit of toproping, and a little bit of bouldering.")
+Area.create(rock_climbing, area_name: "Boulder Flatirons", difficulty_level: "Beginner to Expert", popularity_rating: 4.7, description: "This is an area with a large variety of trad climbing, a variety of bouldering, some sport climbing, and a little bit of toproping.")
+Area.create(rock_climbing, area_name: "Clear Creek Canyon", difficulty_level: "Intermediate to Expert", popularity_rating: 4.9, description: "The vast majority of the climbing here is sport climbing, but there is also some trad climbing, bouldering, and a little bit of toproping.")
+Area.create(rock_climbing, area_name: "Shelf Road", difficulty_level: "Intermediate to Expert", popularity_rating: 4.5, description: "This area has almost exclusively sport climbing routes.")
+Area.create(rock_climbing, area_name: "Garden of the Gods", difficulty_level: "Beginner to Expert", popularity_rating: 4.8, description: "There are quite a few sport routes and trad routes and bouldering routes. There are a few toprope routs as well.")
+Area.create(rock_climbing, area_name: "Rocky Mountain National Park", difficulty_level: "Beginner to Expert", popularity_rating: 4.9, description: "This area is known for alpine climbing. There is also trad climbing and some bouldering at this location.")
+Area.create(rock_climbing, area_name: "Rifle Mountain Park", difficulty_level: "Expert", popularity_rating: 4.8, description: "This area has sport climbing only.")
 
+Area.create(hiking, area_name: "South Valley Park", difficulty_level: "Beginner", popularity_rating: 4.7, description: "This location has unpaved accessible trails for biking, hiking, and horseback riding.")
+Area.create(hiking, area_name: "Deer Creek Canyon Park", difficulty_level: "Intermediate", popularity_rating: 4.7, description: "This area has unpaved and accebile trails.  The trails mostly range from easy to moderate.  These trails are used for hiking and mountain biking.")
+Area.create(hiking, area_name: "Meyer Ranch Park", difficulty_level: "Beginner", popularity_rating: 4.6, description: "This area has unpaved and accebile trails.  The trails range from easy to moderate.  These trails are used for hiking and the trails range from 1 to 6 miles in length.")
+Area.create(hiking, area_name: "Staunton State Park", difficulty_level: "Intermediate", popularity_rating: 4.8, description: " This area has unpaved trails.  The trails are mostly moderate.  These trails are used for hiking and mountain biking.  There is a $9 entrance fee.")
+Area.create(hiking, area_name: "Arapahoe and Roosevelt National Forests", difficulty_level: "Intermediate/ to Advanced", popularity_rating: 4.8, description: "This is a large area with many different types of unpaved adventures.  These trails are used for hiking, mountain biking, and backpacking.")
+Area.create(hiking, area_name: "Roxorough State Park", difficulty_level: "Beginner to Intermediate", popularity_rating: 4.8, description: "This area has unpaved and accessible trails mostly ranging from easy to moderate.")
+Area.create(hiking, area_name: "Chatfield State Park", difficulty_level: "Beginner to Intermediate", popularity_rating: 4.5, description: "There are many trails with different levels of difficult at this location.")
+Area.create(hiking, area_name: "North Cheyenne Canon Park", difficulty_level: "Beginner to Expert", popularity_rating: 4.8, description: "There are many unpaved trails with a large range of distances and difficulty levels at this location.")
+Area.create(hiking, area_name: "Boulder Open Space", difficulty_level: "Intermediate to Expert", popularity_rating: 4.4, description: "There is a large range of mostly moderate and hard trails in this area.")
+Area.create(hiking, area_name: "White River National Forest", difficulty_level: "Intermediate to Expert", popularity_rating: 4.8, description: "This is an area with a variety of mostly moderate and hard trails.")
 
 Area.create(sport_id: ski_snowboard, area_name: "Telluride Ski Resort", difficulty_level: "Beginner/Expert", popularity_rating: 4.8, 
     description: "\"Telluride Ski Resort is a ski resort located in Mountain Village, Colorado right next to the Town of Telluride. 
@@ -112,8 +133,3 @@ Area.create(sport_id: dirt_biking, area_name: "Switzerland North", difficulty_le
 Area.create(sport_id: dirt_biking, area_name: "Switzerland Trail", difficulty_level: "Beginner", popularity_rating: 4.2, 
     description: "\"It is amazing to consider what it must have been like to be on a train winding down the steep terrain on this trail. 
     The scenery is fantastic, especially in the fall. If you want a longer adventure, continue north. Trail is open all year.\"\n - onX Offroad")
-
-
-
-
-
