@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+    has_many :sports
     
     def self.find_by_email(email)
         user = find_by(email: email)

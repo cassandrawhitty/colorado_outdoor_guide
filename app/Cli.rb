@@ -51,4 +51,9 @@ class Cli
         sign_in
     end
 
+    def pick_a_sport 
+      sports = Sport.all.name
+      prompt.select("What sport are you interested in learning about, #{user.given_name}?", sports, filter: true)
+    end
+
 end
