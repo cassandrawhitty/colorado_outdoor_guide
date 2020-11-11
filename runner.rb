@@ -3,10 +3,8 @@ require_relative 'config/environment'
 app = Cli.new
 
 app.welcome
-binding.pry
 app.start
-# app.sign_in
-# app.sign_up
+app.pick_a_sport
 
 binding.pry
 

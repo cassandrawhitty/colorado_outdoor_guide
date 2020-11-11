@@ -13,18 +13,18 @@
 ActiveRecord::Schema.define(version: 2020_11_10_222107) do
 
   create_table "areas", force: :cascade do |t|
+    t.integer "sport_id"
     t.string "area_name"
     t.string "difficulty_level"
     t.float "popularity_rating"
     t.text "description"
+    t.index ["sport_id"], name: "index_areas_on_sport_id"
   end
 
   create_table "sports", force: :cascade do |t|
-    t.integer "area_id"
     t.integer "user_id"
     t.string "name"
     t.string "equipment"
-    t.index ["area_id"], name: "index_sports_on_area_id"
     t.index ["user_id"], name: "index_sports_on_user_id"
   end
 
@@ -35,6 +35,6 @@ ActiveRecord::Schema.define(version: 2020_11_10_222107) do
     t.string "email"
   end
 
-  add_foreign_key "sports", "areas"
+  add_foreign_key "areas", "sports"
   add_foreign_key "sports", "users"
 end
