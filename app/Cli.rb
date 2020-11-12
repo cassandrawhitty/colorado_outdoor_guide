@@ -1,7 +1,7 @@
 class Cli
 
     attr_accessor :user
-    attr_reader :area, :sport, :chosen_sport, :sport_choice, :chosen_area, :prompt
+    attr_reader :area, :sport, :chosen_sport, :sport_choice, :chosen_area, :area_choice, :prompt 
 
     def initialize user=nil
         @user = user
@@ -10,6 +10,7 @@ class Cli
         @chosen_sport = nil
         @sport_choice = nil  
         @chosen_area = nil
+        @area_choice
         @prompt = TTY::Prompt.new
     end
 
@@ -18,7 +19,7 @@ class Cli
     end
 
     def start
-      user_input = prompt.yes?("Is this your first time wandering with us?")
+        user_input = prompt.yes?("Is this your first time wandering with us?")
         if user_input
             puts "Not all who wander are lost, but you sure are! Please sign up and let us help you!"
             sign_up
@@ -34,7 +35,7 @@ class Cli
             self.user = found_user
             puts "Great to see you again explorer, #{user.given_name} #{user.family_name}!"
         else
-            user_input = prompt.ask("Your username cannot be confirmed, please enter your email addresss.")
+            user_input = prompt.ask("Your username cannot be confirmed, please enter your email addresss:")
             self.user = User.find_by_email(user_input) 
         end
     end 
@@ -56,14 +57,12 @@ class Cli
         @chosen_sport = prompt.select("What sport are you interested in learning about, #{user.given_name}?", Sport.all_sports_by_name, symbols: { marker: "🗻"})
         @sport_choice = Sport.find_by(name: @chosen_sport)
         confirm_chosen_sport sport_choice
-        # pick_an_area
     end
 
     def confirm_chosen_sport(sport_choice)
         user_choice = prompt.yes?("You have chosen #{sport_choice.name}!")
         if user_choice
             puts "Yeet!!!" 
-           # pick_an_area
         else
             puts "Thats a Negative Ghost Rider..." 
             pick_a_sport
@@ -72,7 +71,18 @@ class Cli
 
     def pick_an_area 
         @chosen_area = prompt.select("Which area would you like to learn more about, #{user.given_name}?", Area.all_areas_by_sport(sport_choice), symbols: { marker: "🗻"})
-        area_choice = Area.find_by(name: @chosen_area)
+        @area_choice = Area.find_by(area_name: @chosen_area)
+        area_choice_info area_choice
+    end
+
+    def area_choice_info(area_choice)
+       puts "Learn about #{area_choice.area_name}!"
+       puts 
+       puts "Difficulty Level: #{area_choice.difficulty_level}" 
+       puts 
+       puts "Popularity Rating: #{area_choice.popularity_rating}"
+       puts 
+       puts "Description: #{area_choice.description}"
     end
 
 end
