@@ -1,9 +1,7 @@
-require 'pry'
-
 class Cli
 
     attr_accessor :user
-    attr_reader :area, :sport, :prompt
+    attr_reader :area, :sport, :chosen_sport, :prompt
 
     def initialize user=nil
         @user = user
@@ -52,17 +50,25 @@ class Cli
         sign_in
     end
 
-    def pick_a_sport 
-        binding.pry
-        @chosen_sport = prompt.select("What sport are you interested in learning about, #{user.given_name}?", Sport.all_sports_by_name, symbols: { marker: "🗻"})
-
-    end
-
-    def display_chosen_sport
-
+    def confirm_chosen_sport(sport)
+        user_choice = prompt.yes?("You have chosen #{sport.name}")
+        if user_choice
+            puts "Yeet!!!" 
+        else
+            puts "Thats a Negative Ghost Rider..." 
+        end
     end 
 
-    def chosen_sport
+    def pick_a_sport 
+        @chosen_sport = prompt.select("What sport are you interested in learning about, #{user.given_name}?", Sport.all_sports_by_name, symbols: { marker: "🗻"})
+        sport_choice = Sport.find_by(name: @chosen_sport)
+        binding.pry
+        confirm_chosen_sport 
+    end
+
+    
+
+    def chosen_sport(sport)
 
     end
 

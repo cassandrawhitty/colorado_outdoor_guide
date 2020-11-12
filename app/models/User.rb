@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
             user
             return
         else
-            puts "I am very sorry but we could not find your email address"
+            puts "I am very sorry but we could not find your email address at this time. Please try again later"
             return
         end
     end
