@@ -76,7 +76,7 @@ class Cli
     end
 
     def area_choice_info(area_choice)
-       puts "Learn about #{area_choice.area_name}!"
+       puts "Learn about 🏞  #{area_choice.area_name}!  🏞"
        puts 
        puts "Difficulty Level: #{area_choice.difficulty_level}" 
        puts 
@@ -86,9 +86,12 @@ class Cli
     end
 
     def collect_feedback
+        feedback_array = []
         puts "Please rate your experience on this app:"
-        prompt.slider("Experience:", min: 0, max: 10, step: 1)
-        prompt.multiline("Feedback to improve this app:")
+        feedback_num = prompt.slider("Experience:", min: 0, max: 10, step: 1)
+        feedback_array << feedback_num
+        feedback_words = prompt.multiline("Feedback to improve this app:")
+        feedback_array << feedback_words
         exit
     end
 
