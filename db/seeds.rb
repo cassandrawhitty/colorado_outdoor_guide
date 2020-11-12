@@ -1,5 +1,5 @@
-Sport.destroy_all
 Area.destroy_all
+Sport.destroy_all
 
 ski_snowboard = Sport.create(user_id: User, name: "Ski/Snowboarding", equipment: "Required: Skis/Snowboard, Winter Jacket, Winter Pants, Winter Gloves, Helmet, Goggles \n Optional: Beacon, Facecovering, Thermals, Hand-warmers, Sunscreen, Chapstick, Tissues")
 dirt_biking = Sport.create(user_id: User, name: "Dirt Biking", equipment: "Required: Dirtbike, Long Sleeve Jersey/Shirt, Long Pants, Boots, Gloves, Goggles, Hydration-Pac, Snacks \n Optional: GPS, Sunscreen, Chest/Back Protection, Arm Protection, Knee Protection, Tool Kit, Extra Gas, Tire Repair Kit") 
@@ -134,3 +134,4 @@ Area.create(sport_id: dirt_biking.id, area_name: "Switzerland Trail", difficulty
     The scenery is fantastic, especially in the fall. If you want a longer adventure, continue north. Trail is open all year.\"\n - onX Offroad") 
 
 binding.pry
+0

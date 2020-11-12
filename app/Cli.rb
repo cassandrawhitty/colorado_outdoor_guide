@@ -1,13 +1,15 @@
 class Cli
 
     attr_accessor :user
-    attr_reader :area, :sport, :chosen_sport, :prompt
+    attr_reader :area, :sport, :chosen_sport, :sport_choice, :chosen_area, :prompt
 
     def initialize user=nil
         @user = user
         @area = area
         @sport = sport
-        @chosen_sport = nil  
+        @chosen_sport = nil
+        @sport_choice = nil  
+        @chosen_area = nil
         @prompt = TTY::Prompt.new
     end
 
@@ -52,25 +54,25 @@ class Cli
 
     def pick_a_sport 
         @chosen_sport = prompt.select("What sport are you interested in learning about, #{user.given_name}?", Sport.all_sports_by_name, symbols: { marker: "🗻"})
-        sport_choice = Sport.find_by(name: @chosen_sport)
+        @sport_choice = Sport.find_by(name: @chosen_sport)
         confirm_chosen_sport sport_choice
-        pick_an_area
+        # pick_an_area
     end
 
     def confirm_chosen_sport(sport_choice)
         user_choice = prompt.yes?("You have chosen #{sport_choice.name}!")
         if user_choice
             puts "Yeet!!!" 
-            pick_an_area
+           # pick_an_area
         else
             puts "Thats a Negative Ghost Rider..." 
             pick_a_sport
         end
     end 
 
-    def pick_an_area
-       prompt.select("Which area would you like to learn more about?, #{user.given_name}?", Area.all_areas_by_sport, symbols: { marker: "🗻"})
-       area_choice = Area.find_by(name: @chosen_area)
+    def pick_an_area 
+        @chosen_area = prompt.select("Which area would you like to learn more about, #{user.given_name}?", Area.all_areas_by_sport(sport_choice), symbols: { marker: "🗻"})
+        area_choice = Area.find_by(name: @chosen_area)
     end
 
 end
