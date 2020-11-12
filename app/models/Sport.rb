@@ -5,5 +5,4 @@ class Sport < ActiveRecord::Base
     def self.all_sports_by_name
         all.pluck(:name)
     end
-
 end
