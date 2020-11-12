@@ -85,4 +85,11 @@ class Cli
        puts "Description: #{area_choice.description}"
     end
 
+    def collect_feedback
+        puts "Please rate your experience on this app:"
+        prompt.slider("Experience:", min: 0, max: 10, step: 1)
+        prompt.multiline("Feedback to improve this app:")
+        exit
+    end
+
 end
