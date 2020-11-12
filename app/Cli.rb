@@ -54,7 +54,7 @@ class Cli
 
     def pick_a_sport 
         binding.pry
-        @chosen_sport = prompt.select("What sport are you interested in learning about, #{user.given_name}?", Sport.all_sports_by_name)
+        @chosen_sport = prompt.select("What sport are you interested in learning about, #{user.given_name}?", Sport.all_sports_by_name, symbols: { marker: "🗻"})
 
     end
 
