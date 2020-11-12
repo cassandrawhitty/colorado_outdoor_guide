@@ -1,20 +1,13 @@
-# Mod 1 ActiveRecord Starter Repo
+# Colorado Outdoor Guide
 
 In `config/database.yml`, you can change the name of the database from `db/cats.sqlite3` to whatever reflects your project. For example: `db/notes.sqlite3`. Doesn't really matter what you call the db. 
 
 
 
-## ActiveRecord Methods
-These common ActiveRecord methods will help you interact with your database. Please refer to the ActiveRecord
-docs for what they do and how to use them. (If the docs talk about Rails, that is ok! ActiveRecord works very
- similar with or without Rails.)
-```
-  .create (.new, .save)
-  .all
-  .count
-  .find
-  .find_by
-  .where
+## Subtitle 
+First clone down this repo 
+```bash
+  git clone blah blah 
 ```
 
 #### Notes
