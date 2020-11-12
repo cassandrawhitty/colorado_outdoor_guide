@@ -1,6 +1,5 @@
-# Area.destroy_all
-# Sport.destroy_all
-
+Sport.destroy_all
+Area.destroy_all
 
 ski_snowboard = Sport.create(user_id: user, name: "Ski/Snowboarding", equipment: "Required: Skis/Snowboard, Winter Jacket, Winter Pants, Winter Gloves, Helmet, Goggles \n Optional: Beacon, Facecovering, Thermals, Hand-warmers, Sunscreen, Chapstick, Tissues")
 dirt_biking = Sport.create(user_id: user, name: "Dirt Biking", equipment: "Required: Dirtbike, Long Sleeve Jersey/Shirt, Long Pants, Boots, Gloves, Goggles, Hydration-Pac, Snacks \n Optional: GPS, Sunscreen, Chest/Back Protection, Arm Protection, Knee Protection, Tool Kit, Extra Gas, Tire Repair Kit") 

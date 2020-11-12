@@ -8,7 +8,8 @@ class Cli
     def initialize user=nil
         @user = user
         @area = area
-        @sport = sport  
+        @sport = sport
+        @chosen_sport = nil  
         @prompt = TTY::Prompt.new
     end
 
@@ -52,8 +53,17 @@ class Cli
     end
 
     def pick_a_sport 
-      sports = Sport.all.name
-      prompt.select("What sport are you interested in learning about, #{user.given_name}?", sports, filter: true)
+        binding.pry
+        @chosen_sport = prompt.select("What sport are you interested in learning about, #{user.given_name}?", Sport.all_sports_by_name)
+
+    end
+
+    def display_chosen_sport
+
+    end 
+
+    def chosen_sport
+
     end
 
 end
