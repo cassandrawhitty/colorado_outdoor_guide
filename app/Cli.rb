@@ -76,6 +76,9 @@ class Cli
         @chosen_area = prompt.select("Which area would you like to learn more about, #{user.given_name}?", Area.all_areas_by_sport(sport_choice), symbols: { marker: "🗻"})
         @area_choice = Area.find_by(area_name: @chosen_area)
         area_choice_info area_choice
+        next_move_area
+        next_move_sport
+        next_move_exit
     end
 
     def area_choice_info(area_choice)
@@ -89,55 +92,48 @@ class Cli
        puts
     end
 
-    # def next_move_sport
-    #     user_input = prompt.yes?("Is there a different sport you would like to learn about?")
-    #     if user_input
-    #         puts "Let's take a look"
-    #         puts
-    #         pick_a_sport
-    #     else
-    #         puts "You are now being redirected..."
-    #         puts
-    #         next_move_exit
-    #     end
-    # end
+    def next_move_sport
+        user_input = prompt.yes?("Is there a different sport you would like to learn about?")
+        if user_input
+            puts "Let's take a look"
+            puts
+            pick_a_sport
+            next_move_area
+        else
+            puts "You are now being redirected..."
+            puts
+            next_move_quit
+        end
+    end
 
-    # def next_move_area
-    #     user_input = prompt.yes?("Are there any other #{sport_choice.name} areas you would like to learn about?")
-    #     if user_input
-    #         puts "Let's take a look"
-    #         puts
-    #         pick_an_area
-    #     else
-    #         puts "Let's get out of here"
-    #         puts
-    #         next_move_sport
-    #     end
-    # end
-    # def next_move_quit
-    #     user_input = prompt.yes?("Would you like to leave some user feedback for our devs?")
-    #     if user_input
-    #         puts "Thank you, your opinion matters to us!"
-    #         puts
-    #         collect_feedback
-    #     else
-    #         puts "Thank you for using Colorado Outdoor Guide"
-    #         puts
-    #         puts "We hope you'll explore with us in the future!"
-    #         puts
-    #         exit
-    #     end
-    # end
+    def next_move_area
+        user_input = prompt.yes?("Are there any other #{sport_choice.name} areas you would like to learn about?")
+        if user_input
+            puts "Let's take a look"
+            puts
+            pick_an_area
+        else
+            puts "Let's get out of here"
+            puts
+            next_move_sport
+        end
+    end
+
+    def next_move_quit
+        user_input = prompt.yes?("Would you like to leave some user feedback for our devs?")
+        if user_input
+            puts "Thank you, your opinion matters to us!"
+            puts
+            collect_feedback
+        else
+            puts "Thank you for using Colorado Outdoor Guide"
+            puts
+            puts "We hope you'll explore with us in the future!"
+            puts
+            exit
+        end
+    end
     
-    def next_move
-        choices = [
-            {name: "Areas", value: self.pick_an_area},
-            {name: "Sports", value: self.pick_a_sport},  
-            {name: "Quit", value: self.collect_feedback}
-        ]
-        move = prompt.select("Is there anything else you wish to learn about, #{user.given_name}?", choices, symbols: { marker: "🗻"})
-    end     
-
     def collect_feedback
         feedback_array = []
         puts "Please rate your experience on this app:"

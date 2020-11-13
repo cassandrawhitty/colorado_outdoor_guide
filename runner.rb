@@ -6,7 +6,6 @@ app.welcome
 app.start
 app.pick_a_sport
 app.pick_an_area
-app.next_move
 
 
 
