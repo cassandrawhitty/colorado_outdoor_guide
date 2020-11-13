@@ -61,7 +61,7 @@ Area.create(sport_id: ski_snowboard.id, area_name: "Winter Park Resort", difficu
     The resort consists of three interconnected mountain peaks (and seven 'territories') — Winter Park, Mary Jane, and Vasquez Ridge — which share a common lift ticket. 
     Mary Jane, opened in 1975, has a separate base area and is known for its moguls, tree skiing, hidden huts and generally more difficult terrain. 
     The 435 acres of backcountry terrain in Vasquez Cirque were opened to skiing, with the relocation of the former Outrigger triple chairlift to the backside of Parsenn Bowl provides easier escape to Mary Jane after descending Vasquez Cirque. 
-    In 2018 Winter Park Resort was named 'Best ski resort in North America' as voted by the readers of USA Today.[7] In 2019 Winter Park Resort was named 'Number 1 Ski Resort in North America'.\"\n - Wikipedia")
+    In 2018 Winter Park Resort was named 'Best ski resort in North America' as voted by the readers of USA Today. In 2019 Winter Park Resort was named 'Number 1 Ski Resort in North America'.\"\n - Wikipedia")
 
 Area.create(sport_id: ski_snowboard.id, area_name: "Beaver Creek Resort", difficulty_level: "Beginner to Expert", popularity_rating: 4.2, 
     description: "\"Beaver Creek Resort is a major ski resort in the western United States, near Avon, Colorado. The resort comprises three villages, the main Beaver Creek Village, Bachelor Gulch, and Arrowhead to the west. 
@@ -132,6 +132,3 @@ Area.create(sport_id: dirt_biking.id, area_name: "Switzerland North", difficulty
 Area.create(sport_id: dirt_biking.id, area_name: "Switzerland Trail", difficulty_level: "Beginner", popularity_rating: 4.2, 
     description: "\"It is amazing to consider what it must have been like to be on a train winding down the steep terrain on this trail. 
     The scenery is fantastic, especially in the fall. If you want a longer adventure, continue north. Trail is open all year.\"\n - onX Offroad") 
-
-binding.pry
-0
