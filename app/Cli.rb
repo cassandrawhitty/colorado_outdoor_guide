@@ -14,8 +14,40 @@ class Cli
         @prompt = TTY::Prompt.new
     end
 
+    def mountain_image
+        puts "
+                                                                                                   
+                                                                                                    
+                                                                                                    
+                                                :+`                                                 
+                                             -omh+h:                                                
+                              `:`         .+dNNs` .yy.                                              
+                            .oh/ys-    ./hNMMMh-  ``+d+`                                            
+                          -sms` `/dd+:ymMMMMM+`   .: .yh-                                           
+                        :yNd:`    .dMdmMMd++M-     -s.`+mo`                                         
+                     `/hNNy+o:   -oo+hNd/-  d/      :d: .hd/                 `:`                    
+                   `/dMMMNmy.    .-ymh///.  -o       :ms``+my/.            -odNd:                   
+                 .+mMMMMMm/`    `smy/oy/`    :      `/mMd- ./yddo:.     `/hNMNodNs.                 
+               .omMMMNdNy.      .M/ ss.             -+odMN/   ./yyss+:-odmmMd:`oyMm/                
+             -sNMNMNh:o/        .y `:                 +md+.      ``.yNdy/.hy. `msoNMy.              
+          `:yNmhohy- ``         ..                   /o-`        `/hy/.   /    .ss/dNh+`            
+        `:hmy/..+-                                  ``          -+/.       `/    .+-y+os-           
+      `/ys:`   `              `/        `o            ````.....--...````   +m. :`  ``/..o+`         
+    `:/:`        /`  `     `. sN-    +. +N: ``.-:/ossyyyyysssoooooossssssoomMs-ms     `  -+-        
+    `   ..`     `m+ :s     /y-mMy`  .my:mMmyhhdhyo+:-.`````.--://++++////++++osyho/:.`     -:`      
+         .://:..sMN:hN- ``.mMhMMNo+ohNmhyo/:.`    `.-/+oooooooossyyhddhs++++ooooo++++++:.`   -.     
+            `-/+sdmdNNdyyhhmmdhyo+/-.`        `-////:-`   `---.------:/+o+.      `.-:------.  ``    
+                   ``....``                  `.`          `                                         
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                        
+        "
+    end
+
     def welcome
-        puts "Welcome to Colorado Outdoor Guide!"
+        print TTY::Box.frame { "Welcome to Colorado Outdoor Guide!" }
     end
 
     def start
