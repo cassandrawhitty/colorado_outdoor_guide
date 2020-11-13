@@ -1,6 +1,6 @@
 class Cli
 
-    attr_accessor :user
+    attr_accessor :user, :feedback
     attr_reader :area, :sport, :chosen_sport, :sport_choice, :chosen_area, :area_choice, :prompt 
 
     def initialize user=nil
@@ -11,6 +11,7 @@ class Cli
         @sport_choice = nil  
         @chosen_area = nil
         @area_choice
+        @feedback = feedback
         @prompt = TTY::Prompt.new
     end
 
@@ -37,12 +38,7 @@ class Cli
     `   ..`     `m+ :s     /y-mMy`  .my:mMmyhhdhyo+:-.`````.--://++++////++++osyho/:.`     -:`      
          .://:..sMN:hN- ``.mMhMMNo+ohNmhyo/:.`    `.-/+oooooooossyyhddhs++++ooooo++++++:.`   -.     
             `-/+sdmdNNdyyhhmmdhyo+/-.`        `-////:-`   `---.------:/+o+.      `.-:------.  ``    
-                   ``....``                  `.`          `                                         
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                        
+                   ``....``                  `.`          `                                                                                     
         "
     end
 
@@ -61,7 +57,7 @@ class Cli
     end
 
     def sign_in
-        user_input = prompt.ask("Please enter your username:")
+        user_input = prompt.ask("Please enter your username:", required: true)
         found_user = User.find_by(user_name: user_input)
         if found_user
             self.user = found_user
@@ -82,6 +78,7 @@ class Cli
         user_name: user_name,
         email: email)
         puts "Thank you for completing registration, please try signing in now."
+        puts
         sign_in
     end
 
@@ -94,9 +91,11 @@ class Cli
     def confirm_chosen_sport(sport_choice)
         user_choice = prompt.yes?("You have chosen #{sport_choice.name}!")
         if user_choice
-            puts "Yeet!!!" 
+            puts "Thats what I'm talking about!"
+            puts 
         else
-            puts "Thats a Negative Ghost Rider..." 
+            puts "Thats a Negative Ghost Rider. The patern is full..."
+            puts
             pick_a_sport
         end
     end 
@@ -105,25 +104,75 @@ class Cli
         @chosen_area = prompt.select("Which area would you like to learn more about, #{user.given_name}?", Area.all_areas_by_sport(sport_choice), symbols: { marker: "🗻"})
         @area_choice = Area.find_by(area_name: @chosen_area)
         area_choice_info area_choice
+        next_move_area
+        next_move_sport
+        next_move_exit
     end
 
     def area_choice_info(area_choice)
        puts "Learn about 🏞  #{area_choice.area_name}! 🏞"
        puts 
-       puts "Difficulty Level: #{area_choice.difficulty_level}" 
+       puts "Difficulty Level: 🦾  #{area_choice.difficulty_level}  🦾" 
        puts 
-       puts "Popularity Rating: #{area_choice.popularity_rating}"
+       puts "Popularity Rating: 😀  #{area_choice.popularity_rating}  😀"
        puts 
        puts "Description: #{area_choice.description}"
+       puts
     end
 
+    def next_move_sport
+        user_input = prompt.yes?("Is there a different sport you would like to learn about?")
+        if user_input
+            puts "Let's take a look"
+            puts
+            pick_a_sport
+            next_move_area
+        else
+            puts "You are now being redirected..."
+            puts
+            next_move_quit
+        end
+    end
+
+    def next_move_area
+        user_input = prompt.yes?("Are there any other #{sport_choice.name} areas you would like to learn about?")
+        if user_input
+            puts "Let's take a look"
+            puts
+            pick_an_area
+        else
+            puts "Let's get out of here"
+            puts
+            next_move_sport
+        end
+    end
+
+    def next_move_quit
+        user_input = prompt.yes?("Would you like to leave some user feedback for our devs?")
+        if user_input
+            puts "Thank you, your opinion matters to us!"
+            puts
+            collect_feedback
+        else
+            puts "Thank you for using Colorado Outdoor Guide"
+            puts
+            puts "We hope you'll explore with us in the future!"
+            puts
+            exit
+        end
+    end
+    
     def collect_feedback
-        feedback_array = []
         puts "Please rate your experience on this app:"
         feedback_num = prompt.slider("Experience:", min: 0, max: 10, step: 1)
-        feedback_array << feedback_num
-        feedback_words = prompt.multiline("Feedback to improve this app:")
-        feedback_array << feedback_words
+        feedback_words = prompt.multiline("Feedback to better improve your experience:")
+        self.feedback = Feedback.create(feedback_num: feedback_num, feedback_words: feedback_words)
+        puts "Your feedback is greatly appreciated!!!"
+        puts
+        puts "Thank you for using Colorado Outdoor Guide"
+        puts
+        puts "We hope you'll explore with us in the future!"
+        puts
         exit
     end
 

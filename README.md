@@ -9,6 +9,7 @@ This is a CLI app that allows users to create an account, choose which sports th
 
 We thought of creating this project when we realized that we would love access to a quick guide that suggests ten places relatively close to Denver where people can enjoy the sport of their choice.
 
+<<<<<<< HEAD
 ## Technologies
 💻 Ruby
 💻 Active Record
@@ -19,6 +20,22 @@ We thought of creating this project when we realized that we would love access t
 ## Setup
 
 In order to experience this app, users must clone this Github repository and open it in their code editor.  Install the Ruby gems by running ```bundle install```.  Create your local database by running ```rake db:migrate```.  Seed the database by running ```rake db:seed```.  After doing all of that, start using the CLI app by running ```ruby runner.db```. 
+=======
+## Demo Video
+
+(coming soon)
+
+## Technologies
+💻 Ruby <br />
+💻 Active Record <br />
+💻 Rake <br />
+💻 SQLite3 <br />
+💻 tty-prompt <br />
+
+## Setup
+
+In order to experience this app, users must clone this Github repository and open it in their code editor.  Install the Ruby gems by running ```bundle install```.  Create your local database by running ```rake db:migrate```.  Seed the database by running ```rake db:seed```.  After doing all of that, start using the CLI app by running ```ruby runner.db```.  Checkout a new branch.
+>>>>>>> 644ef6751ccc98ffbcb48571937d29a501634da0
 
 ## Instructions
 
@@ -26,7 +43,12 @@ The first thing you'll be asked to do is sign up or sign in to the app.  If you'
 
 ## Code Examples
 
+<<<<<<< HEAD
 ```def start
+=======
+``` 
+def start
+>>>>>>> 644ef6751ccc98ffbcb48571937d29a501634da0
         user_input = prompt.yes?("Is this your first time wandering with us?")
         if user_input
             puts "Not all who wander are lost, but you sure are! Please sign up and let us help you!"
@@ -34,9 +56,16 @@ The first thing you'll be asked to do is sign up or sign in to the app.  If you'
         else 
             sign_in
         end
+<<<<<<< HEAD
     end```
 
     ```class Area < ActiveRecord::Base
+=======
+    end
+  ```
+```
+  class Area < ActiveRecord::Base
+>>>>>>> 644ef6751ccc98ffbcb48571937d29a501634da0
 
   belongs_to :sport
   
@@ -46,12 +75,18 @@ The first thing you'll be asked to do is sign up or sign in to the app.  If you'
     end.pluck(:area_name)
   end
 
+<<<<<<< HEAD
 end```
+=======
+end 
+```
+>>>>>>> 644ef6751ccc98ffbcb48571937d29a501634da0
 
 ## Status
 
 We are consistently trying to improve the user's experience with this app.  We value feedback from our community.  Some ideas we have for improving this app are:
 
+<<<<<<< HEAD
 🦾 Adding more areas for each sport
 🦾 Improved accesibility between the user class and the sport class
 
@@ -59,6 +94,15 @@ We are consistently trying to improve the user's experience with this app.  We v
 
 [Linkedin](https://www.linkedin.com/in/cassandra-whitty-0a184a1a4/)Cassandra Whitty 
 [Linkedin](https://www.linkedin.com/in/kevin-glasgow-21795154/)Kevin Glasgow
+=======
+🦾 Adding more areas for each sport <br />
+🦾 Improved fluidity between the user class and the sport class within the back end code
+
+## Contact 
+
+[Linkedin](https://www.linkedin.com/in/cassandra-whitty-0a184a1a4/)  Cassandra Whitty <br />
+[Linkedin](https://www.linkedin.com/in/kevin-glasgow-21795154/)  Kevin Glasgow
+>>>>>>> 644ef6751ccc98ffbcb48571937d29a501634da0
 
 
 

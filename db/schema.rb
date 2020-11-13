@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_222107) do
+ActiveRecord::Schema.define(version: 2020_11_13_154401) do
 
   create_table "areas", force: :cascade do |t|
     t.integer "sport_id"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 2020_11_10_222107) do
     t.float "popularity_rating"
     t.text "description"
     t.index ["sport_id"], name: "index_areas_on_sport_id"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer "feedback_num"
+    t.string "feedback_words"
   end
 
   create_table "sports", force: :cascade do |t|
