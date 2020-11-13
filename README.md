@@ -26,7 +26,8 @@ The first thing you'll be asked to do is sign up or sign in to the app.  If you'
 
 ## Code Examples
 
-```def start
+``` 
+def start
         user_input = prompt.yes?("Is this your first time wandering with us?")
         if user_input
             puts "Not all who wander are lost, but you sure are! Please sign up and let us help you!"
@@ -34,9 +35,10 @@ The first thing you'll be asked to do is sign up or sign in to the app.  If you'
         else 
             sign_in
         end
-    end```
-
-    ```class Area < ActiveRecord::Base
+    end
+  ```
+```
+  class Area < ActiveRecord::Base
 
   belongs_to :sport
   
@@ -46,7 +48,8 @@ The first thing you'll be asked to do is sign up or sign in to the app.  If you'
     end.pluck(:area_name)
   end
 
-end```
+end 
+```
 
 ## Status
 
