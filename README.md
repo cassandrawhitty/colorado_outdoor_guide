@@ -1,64 +1,68 @@
 # Colorado Outdoor Guide
 
-In `config/database.yml`, you can change the name of the database from `db/cats.sqlite3` to whatever reflects your project. For example: `db/notes.sqlite3`. Doesn't really matter what you call the db. 
+An app where outdoor lovers can find areas in Colorado where they can enjoy rock climbing, dirt biking, skiing, snowboarding, and hiking!
+
+## General Info
+This is a CLI app that allows users to create an account, choose which sports they want to learn about, and then get a list of ten areas in Colorado where they can experience their sport of choice.  Users will be able to see the name of the area, the difficulty level for that particular sport, the popularity rating of the area, and a description of the area in relation to the sport they're interested in.  
+
+## Inspiration
+
+We thought of creating this project when we realized that we would love access to a quick guide that suggests ten places relatively close to Denver where people can enjoy the sport of their choice.
+
+## Technologies
+💻 Ruby
+💻 Active Record
+💻 Rake
+💻 SQLite3
+💻 tty-prompt
+
+## Setup
+
+In order to experience this app, users must clone this Github repository and open it in their code editor.  Install the Ruby gems by running ```bundle install```.  Create your local database by running ```rake db:migrate```.  Seed the database by running ```rake db:seed```.  After doing all of that, start using the CLI app by running ```ruby runner.db```. 
+
+## Instructions
+
+The first thing you'll be asked to do is sign up or sign in to the app.  If you're a returning user, then you need only enter the username you created.  If you're a new user, then you'll be asked to provide your username, email, first name, and last name.  After that, you'll be prompted to choose which sport you'd like to learn about.  Then, after you've chosen a sport, you'll see ten different areas where you can do that sport and information about those ten areas.  Choose which one you'd like to learn more about, and read about that area!  Once you're done using the app, please submit feedback about the app before exiting. 
+
+## Code Examples
+
+```def start
+        user_input = prompt.yes?("Is this your first time wandering with us?")
+        if user_input
+            puts "Not all who wander are lost, but you sure are! Please sign up and let us help you!"
+            sign_up
+        else 
+            sign_in
+        end
+    end```
+
+    ```class Area < ActiveRecord::Base
+
+  belongs_to :sport
+  
+  def self.all_areas_by_sport sport_choice
+    self.all.select do |area|
+        area.sport_id == sport_choice.id
+    end.pluck(:area_name)
+  end
+
+end```
+
+## Status
+
+We are consistently trying to improve the user's experience with this app.  We value feedback from our community.  Some ideas we have for improving this app are:
+
+🦾 Adding more areas for each sport
+🦾 Improved accesibility between the user class and the sport class
+
+## Contact 
+
+[Linkedin](https://www.linkedin.com/in/cassandra-whitty-0a184a1a4/)Cassandra Whitty 
+[Linkedin](https://www.linkedin.com/in/kevin-glasgow-21795154/)Kevin Glasgow
 
 
 
-## Subtitle 
-First clone down this repo 
-```bash
-  git clone blah blah 
-```
-
-#### Notes
-
-*Remember*, any model that will have a corresponding table in the database needs to inherit from `ActiveRecord::Base`
-ex:
-```
-class Cat < ActiveRecord::Base
-  # customer methods defined here
-end
-```
-
-- To view database, you can run `sqlite3 db/cats.db`, then can run `.schema` or `.tables` and can run any SQL commands. (Don't need to do this anymore though! ActiveRecord gives us a schema file!)
 
 
-### Steps to setup Ruby app with activerecord
-(New for ActiveRecord 6.0)
 
 
-## The following steps are already done for you in this boiler plate repo. 
-## The steps below are provided to you as a reference only. 
-## You're not expected to memorize this (please don't).
-
-
-1. In root of project, run `bundle init`
-1. Add gems: 
-  `bundle add activerecord pry sinatra, sinatra-activerecord rake sqlite3 require_all`
-  run `bundle install`
-1. mkdir config and lib 
-1. mkdir lib/models
-1. touch config/environment.rb config/database.yml
-1. Create your model files and models (make sure to have your models inherit from ActiveRecord::Base)
-1. In config/environment.rb:
-```
-  require 'bundler/setup'
-  Bundler.require
-
-  require_all 'lib'
-```
-1. In config/database.yml:
-  ```
-  development:
-    adapter: sqlite3
-    database: db/cats.sqlite3
-  ```
-1. Touch Rakefile - require ‘config/environment.rb’ and require_relative ‘sinatra/activerecord/rake’ 
-1. Run rake -T to make sure we have access to raketasks
-1. Run `rake db:create_migration NAME=create_cats_table` (will create the db folder if it doesn’t already exist) and will add the migration file to db/migration
-1. Write migration file, then run `rake db:migrate`
-1. Then can see schema in file structure, can also drop into sqlite3 cats.db to see the tables and schema, but don’t really need to do that anymore. *Review rollback here*
-1. Create seeds in db/seeds.rb and run `rake db:seed`
-1. Now can put a pry in environment.rb to run <ModelName>.all and see your seeds.
-
-Make sure your models inherit from `ActiveRecord::Base`
