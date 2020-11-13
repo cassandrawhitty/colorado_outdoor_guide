@@ -9,14 +9,3 @@ class Area < ActiveRecord::Base
   end
 
 end
-
-
-# def self.all_areas_by_sport(sport)
-#     all.select do |area|
-#         if area.sport_id == Sport.ids
-#             all.pluck(:area_name)
-#         else 
-#             nil
-#         end
-#     end
-# end
