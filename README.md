@@ -9,6 +9,10 @@ This is a CLI app that allows users to create an account, choose which sports th
 
 We thought of creating this project when we realized that we would love access to a quick guide that suggests ten places relatively close to Denver where people can enjoy the sport of their choice.
 
+## Demo Video
+
+(coming soon)
+
 ## Technologies
 💻 Ruby <br />
 💻 Active Record <br />
@@ -55,7 +59,7 @@ end
 
 We are consistently trying to improve the user's experience with this app.  We value feedback from our community.  Some ideas we have for improving this app are:
 
-🦾 Adding more areas for each sport
+🦾 Adding more areas for each sport <br />
 🦾 Improved fluidity between the user class and the sport class within the back end code
 
 ## Contact 
