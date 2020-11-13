@@ -1,6 +1,6 @@
 class Cli
 
-    attr_accessor :user
+    attr_accessor :user, :feedback
     attr_reader :area, :sport, :chosen_sport, :sport_choice, :chosen_area, :area_choice, :prompt 
 
     def initialize user=nil
@@ -11,6 +11,7 @@ class Cli
         @sport_choice = nil  
         @chosen_area = nil
         @area_choice
+        @feedback = feedback
         @prompt = TTY::Prompt.new
     end
 
@@ -135,12 +136,10 @@ class Cli
     end
     
     def collect_feedback
-        feedback_array = []
         puts "Please rate your experience on this app:"
         feedback_num = prompt.slider("Experience:", min: 0, max: 10, step: 1)
-        feedback_array << feedback_num
         feedback_words = prompt.multiline("Feedback to better improve your experience:")
-        feedback_array << feedback_words
+        self.feedback = Feedback.create(feedback_num: feedback_num, feedback_words: feedback_words)
         puts "Your feedback is greatly appreciated!!!"
         puts
         puts "Thank you for using Colorado Outdoor Guide"

@@ -10,11 +10,11 @@ This is a CLI app that allows users to create an account, choose which sports th
 We thought of creating this project when we realized that we would love access to a quick guide that suggests ten places relatively close to Denver where people can enjoy the sport of their choice.
 
 ## Technologies
-💻 Ruby
-💻 Active Record
-💻 Rake
-💻 SQLite3
-💻 tty-prompt
+💻 Ruby <br />
+💻 Active Record <br />
+💻 Rake <br />
+💻 SQLite3 <br />
+💻 tty-prompt <br />
 
 ## Setup
 
@@ -56,12 +56,12 @@ end
 We are consistently trying to improve the user's experience with this app.  We value feedback from our community.  Some ideas we have for improving this app are:
 
 🦾 Adding more areas for each sport
-🦾 Improved accesibility between the user class and the sport class
+🦾 Improved fluidity between the user class and the sport class within the back end code
 
 ## Contact 
 
-[Linkedin](https://www.linkedin.com/in/cassandra-whitty-0a184a1a4/)Cassandra Whitty 
-[Linkedin](https://www.linkedin.com/in/kevin-glasgow-21795154/)Kevin Glasgow
+[Linkedin](https://www.linkedin.com/in/cassandra-whitty-0a184a1a4/)  Cassandra Whitty <br />
+[Linkedin](https://www.linkedin.com/in/kevin-glasgow-21795154/)  Kevin Glasgow
 
 
 
