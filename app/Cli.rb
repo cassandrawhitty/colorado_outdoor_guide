@@ -99,7 +99,7 @@ class Cli
             puts "Let's take a look"
             puts
             pick_a_sport
-            next_move_area
+            pick_an_area
         else
             puts "You are now being redirected..."
             puts
