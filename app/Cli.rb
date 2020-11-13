@@ -76,11 +76,7 @@ class Cli
     end
 
     def area_choice_info(area_choice)
-<<<<<<< HEAD
        puts "Learn about 🏞  #{area_choice.area_name}! 🏞"
-=======
-       puts "Learn about 🏞  #{area_choice.area_name}!  🏞"
->>>>>>> 514ba857d85b00128da7598b46c9e64df06099ce
        puts 
        puts "Difficulty Level: #{area_choice.difficulty_level}" 
        puts 
